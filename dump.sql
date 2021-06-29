@@ -45,6 +45,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE public.about (
+    id integer NOT NULL,
     name text,
     description text
 );
@@ -53,13 +54,27 @@ CREATE TABLE public.about (
 ALTER TABLE public.about OWNER TO postgres;
 
 --
+-- Name: about_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.about ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.about_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
 -- Name: main; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.main (
+    id integer NOT NULL,
     head1 text,
     head2 text,
-    description text,
     do_description text,
     work_head text,
     work_description text,
@@ -69,11 +84,26 @@ CREATE TABLE public.main (
     email text,
     address text,
     vk text,
-    inst text
+    inst text,
+    description text
 );
 
 
 ALTER TABLE public.main OWNER TO postgres;
+
+--
+-- Name: main_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.main ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.main_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
 
 --
 -- Name: uslugi; Type: TABLE; Schema: public; Owner: postgres
@@ -82,8 +112,8 @@ ALTER TABLE public.main OWNER TO postgres;
 CREATE TABLE public.uslugi (
     id integer NOT NULL,
     name text,
-    description text,
     image text,
+    description text,
     price text
 );
 
@@ -136,7 +166,8 @@ ALTER TABLE public.works ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Data for Name: about; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.about (name, description) FROM stdin;
+COPY public.about (id, name, description) FROM stdin;
+1	1	1
 \.
 
 
@@ -144,7 +175,8 @@ COPY public.about (name, description) FROM stdin;
 -- Data for Name: main; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.main (head1, head2, description, do_description, work_head, work_description, contacts_time1, contacts_time2, phone, email, address, vk, inst) FROM stdin;
+COPY public.main (id, head1, head2, do_description, work_head, work_description, contacts_time1, contacts_time2, phone, email, address, vk, inst, description) FROM stdin;
+1	1	1	1	1	1	2	3	4	5	6	8	9	1
 \.
 
 
@@ -152,10 +184,7 @@ COPY public.main (head1, head2, description, do_description, work_head, work_des
 -- Data for Name: uslugi; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.uslugi (id, name, description, image, price) FROM stdin;
-2	первая1	описание1	Картинка1	\N
-3	первая1	описание1	Картинка1	\N
-4	первая1	описание1	Картинка1	\N
+COPY public.uslugi (id, name, image, description, price) FROM stdin;
 \.
 
 
@@ -168,17 +197,47 @@ COPY public.works (id, name, description, image) FROM stdin;
 
 
 --
+-- Name: about_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.about_id_seq', 33, true);
+
+
+--
+-- Name: main_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.main_id_seq', 33, true);
+
+
+--
 -- Name: uslugi_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.uslugi_id_seq', 4, true);
+SELECT pg_catalog.setval('public.uslugi_id_seq', 33, true);
 
 
 --
 -- Name: works_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.works_id_seq', 1, false);
+SELECT pg_catalog.setval('public.works_id_seq', 33, true);
+
+
+--
+-- Name: about about_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.about
+    ADD CONSTRAINT about_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: main main_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main
+    ADD CONSTRAINT main_pkey PRIMARY KEY (id);
 
 
 --
