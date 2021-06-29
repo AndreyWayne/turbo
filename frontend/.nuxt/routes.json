@@ -2,64 +2,64 @@
   {
     "name": "galereya",
     "path": "/galereya",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/galereya.vue",
+    "component": "/usr/src/client/pages/galereya.vue",
     "chunkName": "pages/galereya",
-    "_name": "_a66a9b10"
+    "_name": "_c9776fd4"
   },
   {
     "name": "kontakty",
     "path": "/kontakty",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/kontakty.vue",
+    "component": "/usr/src/client/pages/kontakty.vue",
     "chunkName": "pages/kontakty",
-    "_name": "_4e3858fa"
+    "_name": "_71452dbe"
   },
   {
     "name": "o-nas",
     "path": "/o-nas",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/o-nas.vue",
+    "component": "/usr/src/client/pages/o-nas.vue",
     "chunkName": "pages/o-nas",
-    "_name": "_0c78ecf0"
+    "_name": "_1b7508aa"
   },
   {
     "name": "otzyvy",
     "path": "/otzyvy",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/otzyvy.vue",
+    "component": "/usr/src/client/pages/otzyvy.vue",
     "chunkName": "pages/otzyvy",
-    "_name": "_3aead151"
+    "_name": "_4f69366f"
   },
   {
     "name": "sobytiya",
     "path": "/sobytiya",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/sobytiya/index.vue",
+    "component": "/usr/src/client/pages/sobytiya/index.vue",
     "chunkName": "pages/sobytiya/index",
-    "_name": "_94e0e7c6"
+    "_name": "_6844198a"
   },
   {
     "name": "uslugi",
     "path": "/uslugi",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/uslugi/index.vue",
+    "component": "/usr/src/client/pages/uslugi/index.vue",
     "chunkName": "pages/uslugi/index",
-    "_name": "_77c3ba94"
+    "_name": "_0a77b954"
   },
   {
     "name": "sobytiya-id",
     "path": "/sobytiya/:id",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/sobytiya/_id.vue",
+    "component": "/usr/src/client/pages/sobytiya/_id.vue",
     "chunkName": "pages/sobytiya/_id",
-    "_name": "_4cdbf1c5"
+    "_name": "_d994ef3a"
   },
   {
     "name": "uslugi-id",
     "path": "/uslugi/:id",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/uslugi/_id.vue",
+    "component": "/usr/src/client/pages/uslugi/_id.vue",
     "chunkName": "pages/uslugi/_id",
-    "_name": "_51bd4ac4"
+    "_name": "_0d8c00bc"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/index.vue",
+    "component": "/usr/src/client/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_531e48d0"
+    "_name": "_0fbb4a8c"
   }
 ]

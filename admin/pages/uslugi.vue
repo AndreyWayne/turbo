@@ -80,6 +80,7 @@
                     <v-img
                         :src="item.image"
                         class="grey lighten-2"
+                        height="270"
                     >
                     </v-img>
 
@@ -94,6 +95,8 @@
                     <v-card-text>
                         {{ item.description }}
                     </v-card-text>
+
+                    <v-spacer></v-spacer>
 
                     <v-card-actions>
                         <v-spacer></v-spacer>
@@ -215,3 +218,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.v-card {
+    display: flex;
+    flex-direction: column;
+}
+.v-card__text {
+    white-space: pre-line;
+}
+</style>

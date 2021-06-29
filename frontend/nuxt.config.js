@@ -6,6 +6,9 @@ module.exports = {
   */
   cache: true,
   target: 'static',
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://192.168.0.194:9000/api/'
+  },
   head: {
     title: 'TURBO | кузовной ремонт и автопокраска в Челябинске',
     htmlAttrs: {
@@ -42,7 +45,8 @@ module.exports = {
     ['@nuxtjs/moment', { locales: ['ru'], defaultLocale: 'ru' }],
     ['@nuxtjs/google-analytics', { id: 'UA-127484847-1'}],
     ['@nuxtjs/yandex-metrika', { id: '55277836', webvisor: true,}],
-    ['vue-scrollto/nuxt', { duration: 500 }]
+    ['vue-scrollto/nuxt', { duration: 500 }],
+    '@nuxtjs/axios'
   ],
   loading: { color: '#3B8070' },
   /*

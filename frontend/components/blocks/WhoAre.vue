@@ -4,7 +4,7 @@ Wrapper.wr
     Section
       .who-are
         .title ЧТО МЫ ДЕЛАЕМ?
-        .description Наш сервис предоставляет более 16 услуг по ремонту автомобиля с 2007 года, соблюдая идеальное качество работы и низкие цены.
+        .description {{ api.do_description }}
 </template>
 
 <script>
@@ -12,6 +12,7 @@ import Wrapper from '~/plugins/Wrapper'
 import Container from '~/plugins/Container'
 import Section from '~/plugins/Section'
 export default {
+  props: ['api'],
   components: {
     Wrapper,
     Container,

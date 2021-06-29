@@ -1,10 +1,10 @@
 <template lang='pug'>
 .page
   Header
-  Main
-  WhoAre
+  Main(:api="main")
+  WhoAre(:api="main")
   Services
-  Photos
+  Photos(:api="main" :works="works")
   Footer
 </template>
 
@@ -17,6 +17,15 @@ import Footer from '~/components/blocks/Footer'
 import WhoAre from '~/components/blocks/WhoAre'
 
 export default {
+  async asyncData({$axios}) {
+      const main = await $axios.$get(`${process.env.baseUrl}main`);
+      const works = await $axios.$get(`${process.env.baseUrl}works`);
+
+      return {
+          main,
+          works,
+      }
+  },
   head() {
     return {
       title: 'TURBO | кузовной ремонт и автопокраска в Челябинске',

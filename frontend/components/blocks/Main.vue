@@ -5,10 +5,10 @@
                 .cp-50
                     .loader
                         h1(v-if="init") 
-                            span(data-aos="fade-up" data-aos-duration="700") TURBO 
-                            span(data-aos="fade-up" data-aos-duration="700" data-aos-delay="250") АВТОСЕРВИС
+                            span(data-aos="fade-up" data-aos-duration="700") {{ api.head1 }}
+                            span(data-aos="fade-up" data-aos-duration="700" data-aos-delay="250") {{ api.head2 }}
                         .loader-progress
-                    p(data-aos="fade-up" data-aos-duration="700" data-aos-delay="650") СТО с сильнейшими специалистами в Челябинске. Мы занимаемся кузовным ремонтом и покраской автомобиля по последним технологиям.
+                    p(data-aos="fade-up" data-aos-duration="700" data-aos-delay="650") {{ api.description }}
                     button(data-aos="fade-up" data-aos-duration="700" data-aos-delay="950" v-scroll-to="{el: 'footer', duration: '750'}") Связаться с нами
             .show-more(v-scroll-to="'.services__block'")
                 span подробнее
@@ -19,6 +19,7 @@
 import H1 from '~/plugins/H1'
 import Container from '~/plugins/Container'
 export default {
+    props: ['api'],
     data() {
         return {
             init: false,
@@ -181,6 +182,7 @@ h1 {
    background-size: 0% 100%;
    background-clip: text;
    margin-bottom: 14px;
+   text-transform: uppercase;
 
    @media (max-width: 767px) {
        font-size: 42px;

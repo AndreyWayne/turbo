@@ -198,3 +198,13 @@ export default {
     }
 }
 </script>
+
+<style>
+.v-card {
+    display: flex;
+    flex-direction: column;
+}
+.v-card__text {
+    white-space: pre-line;
+}
+</style>

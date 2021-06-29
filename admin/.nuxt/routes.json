@@ -2,29 +2,29 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/admin/pages/about.vue",
+    "component": "/usr/src/admin/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_47a1e064"
+    "_name": "_9b766d4a"
   },
   {
     "name": "main",
     "path": "/main",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/admin/pages/main.vue",
+    "component": "/usr/src/admin/pages/main.vue",
     "chunkName": "pages/main",
-    "_name": "_2d9c0732"
+    "_name": "_310ca35b"
   },
   {
     "name": "uslugi",
     "path": "/uslugi",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/admin/pages/uslugi.vue",
+    "component": "/usr/src/admin/pages/uslugi.vue",
     "chunkName": "pages/uslugi",
-    "_name": "_502e9102"
+    "_name": "_39e8c6eb"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/admin/pages/index.vue",
+    "component": "/usr/src/admin/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_6759bb29"
+    "_name": "_5c06b7c0"
   }
 ]

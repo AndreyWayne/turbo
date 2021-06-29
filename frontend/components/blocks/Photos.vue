@@ -5,9 +5,9 @@ div
       Section
         .titles
           .t
-            H2(typed='big' data-aos="fade-up" data-aos-duration="700") Остаёмся лучшими в Челябинске
+            H2(typed='big' data-aos="fade-up" data-aos-duration="700") {{ api.work_head }}
             .tit
-              Title(typed='normal' data-aos="fade-up" data-aos-duration="700" data-aos-delay="350") В работе используем современное оборудование. В арсенале: стапель, профессиональная покрасочная камера, немецкие пистолеты SATA, шлифмашинки MIRKA. Ответственно подходим к каждому заказу и даём гарантию качества 1 год. Можете посмотреть примеры работ, которые говорят сами за себя.
+              Title(typed='normal' data-aos="fade-up" data-aos-duration="700" data-aos-delay="350") {{ api.work_description }} 
               .flex(data-aos="fade-up" data-aos-duration="700" data-aos-delay="500")
                 nuxt-link(to='/galereya').nuxt-link-normal Смотреть все работы
   Wrapper.ph-s
@@ -15,15 +15,15 @@ div
       Section
         .photos
           .photo-wr(
-            v-for='(item, i) in photos'
-            :key='i'
+            v-for='(item, i) in photos.slice(0, 10)'
+            :key='item.id'
             :class='`photo-wr-${ i }`'
             data-aos="fade-up"
             data-aos-duration="700"
           )
-            .photo(:style='{ backgroundImage: `url(/image/works/${ i + 1 }.jpg)` }')
+            .photo(:style='{ backgroundImage: `url(${item.image}` }')
             .photo-title
-              Title(typed='semibold') {{ item.title }}
+              Title(typed='semibold') {{ item.name }}
 </template>
 
 <script>
@@ -34,21 +34,13 @@ import H2 from '~/plugins/H2'
 import Title from '~/plugins/Title'
 import ParallaxContainer from '~/components/elements/ParallaxContainer'
 import ParallaxElement from '~/components/elements/ParallaxElement'
-import { mapState } from 'vuex'
 
 export default {
+  props: ['api', 'works'],
   data() {
     return {
-      photos: [1, 1,1 ]
+      photos: this.works,
     }
-  },
-  computed: {
-    ...mapState('photos', {
-      api: state => state.photos
-    })
-  },
-  created() {
-    this.photos = this.api
   },
   components: {
     Wrapper,
