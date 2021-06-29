@@ -3,15 +3,15 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _c9776fd4 = () => interopDefault(import('../pages/galereya.vue' /* webpackChunkName: "pages/galereya" */))
-const _71452dbe = () => interopDefault(import('../pages/kontakty.vue' /* webpackChunkName: "pages/kontakty" */))
-const _1b7508aa = () => interopDefault(import('../pages/o-nas.vue' /* webpackChunkName: "pages/o-nas" */))
-const _4f69366f = () => interopDefault(import('../pages/otzyvy.vue' /* webpackChunkName: "pages/otzyvy" */))
-const _6844198a = () => interopDefault(import('../pages/sobytiya/index.vue' /* webpackChunkName: "pages/sobytiya/index" */))
-const _0a77b954 = () => interopDefault(import('../pages/uslugi/index.vue' /* webpackChunkName: "pages/uslugi/index" */))
-const _d994ef3a = () => interopDefault(import('../pages/sobytiya/_id.vue' /* webpackChunkName: "pages/sobytiya/_id" */))
-const _0d8c00bc = () => interopDefault(import('../pages/uslugi/_id.vue' /* webpackChunkName: "pages/uslugi/_id" */))
-const _0fbb4a8c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _a66a9b10 = () => interopDefault(import('../pages/galereya.vue' /* webpackChunkName: "pages/galereya" */))
+const _4e3858fa = () => interopDefault(import('../pages/kontakty.vue' /* webpackChunkName: "pages/kontakty" */))
+const _0c78ecf0 = () => interopDefault(import('../pages/o-nas.vue' /* webpackChunkName: "pages/o-nas" */))
+const _3aead151 = () => interopDefault(import('../pages/otzyvy.vue' /* webpackChunkName: "pages/otzyvy" */))
+const _94e0e7c6 = () => interopDefault(import('../pages/sobytiya/index.vue' /* webpackChunkName: "pages/sobytiya/index" */))
+const _77c3ba94 = () => interopDefault(import('../pages/uslugi/index.vue' /* webpackChunkName: "pages/uslugi/index" */))
+const _4cdbf1c5 = () => interopDefault(import('../pages/sobytiya/_id.vue' /* webpackChunkName: "pages/sobytiya/_id" */))
+const _51bd4ac4 = () => interopDefault(import('../pages/uslugi/_id.vue' /* webpackChunkName: "pages/uslugi/_id" */))
+const _531e48d0 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -31,39 +31,39 @@ export const routerOptions = {
 
   routes: [{
     path: "/galereya",
-    component: _c9776fd4,
+    component: _a66a9b10,
     name: "galereya"
   }, {
     path: "/kontakty",
-    component: _71452dbe,
+    component: _4e3858fa,
     name: "kontakty"
   }, {
     path: "/o-nas",
-    component: _1b7508aa,
+    component: _0c78ecf0,
     name: "o-nas"
   }, {
     path: "/otzyvy",
-    component: _4f69366f,
+    component: _3aead151,
     name: "otzyvy"
   }, {
     path: "/sobytiya",
-    component: _6844198a,
+    component: _94e0e7c6,
     name: "sobytiya"
   }, {
     path: "/uslugi",
-    component: _0a77b954,
+    component: _77c3ba94,
     name: "uslugi"
   }, {
     path: "/sobytiya/:id",
-    component: _d994ef3a,
+    component: _4cdbf1c5,
     name: "sobytiya-id"
   }, {
     path: "/uslugi/:id",
-    component: _0d8c00bc,
+    component: _51bd4ac4,
     name: "uslugi-id"
   }, {
     path: "/",
-    component: _0fbb4a8c,
+    component: _531e48d0,
     name: "index"
   }],
 

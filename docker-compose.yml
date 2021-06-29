@@ -1,0 +1,67 @@
+version: "3.8"
+services:
+    db:
+        image: postgres:latest
+        environment:
+            PGDATA: /var/lib/postgresql/data/some_name/
+            POSTGRES_PASSWORD: ipadib339
+            TZ: Europe/Moscow
+        volumes:
+            - data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+    server:
+        image: node:12.16.3
+        command: sh -c "npm install && npm run start"
+        # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
+        volumes:
+            - ./backend:/usr/src/server
+        working_dir: /usr/src/server
+        ports:
+            - "9000:9000"
+        environment:
+            HOST: 0.0.0.0
+        depends_on: 
+            - db
+    client:
+        image: node:12.16.3
+        command: sh -c "npm install && npm run build && npm run start"
+        # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
+        volumes:
+            - ./frontend:/usr/src/client
+        working_dir: /usr/src/client
+        ports:
+            - "3000:3000"
+        environment:
+            HOST: 0.0.0.0
+        depends_on: 
+            - db 
+            - server
+    admin:
+        image: node:12.16.3
+        command: sh -c "npm install && npm run build && npm run start"
+        # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
+        volumes:
+            - ./admin:/usr/src/admin
+        working_dir: /usr/src/admin
+        ports:
+            - "8080:3000"
+        environment:
+            HOST: 0.0.0.0
+        depends_on: 
+            - db 
+            - server
+            - client
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: Ipadib339
+        ports:
+            - "5050:80"
+        depends_on: 
+            - db 
+            - server
+            - client
+volumes:
+  data: {}
