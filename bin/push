@@ -1,0 +1,1 @@
+cd frontend && npm run build && cd ../admin && npm run build
