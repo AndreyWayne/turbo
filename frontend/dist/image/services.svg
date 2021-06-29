@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="10px" viewBox="0 0 26 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Line</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Главная" transform="translate(-222.000000, -1905.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Услуги-Copy" transform="translate(-2.000000, 1719.000000)">
+                <g id="card" transform="translate(124.000000, 0.000000)">
+                    <path id="Line" d="M126,191.25 L117,186.75 L117,195.75 L126,191.25 Z M100.5,191.75 L117.5,191.75 L118,191.75 L118,190.75 L117.5,190.75 L100.5,190.75 L100,190.75 L100,191.75 L100.5,191.75 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
