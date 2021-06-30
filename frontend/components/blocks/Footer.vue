@@ -8,7 +8,7 @@
             span Свяжитесь
             |  с нами
           .head-title
-            Title(typed='regular-16') {{ main.contact_time1 }}
+            Title(typed='regular-16') {{ main.contacts_time1 }}
             Title(typed='regular-16') {{ main.contacts_time2 }}
         .form
           .data.form-el
