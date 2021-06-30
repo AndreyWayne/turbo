@@ -3,7 +3,7 @@
   Header
   Main(:api="main")
   WhoAre(:api="main")
-  Services
+  Services(:api="uslugi")
   Photos(:api="main" :works="works")
   Footer
 </template>
@@ -20,10 +20,14 @@ export default {
   async asyncData({$axios}) {
       const main = await $axios.$get(`${process.env.baseUrl}main`);
       const works = await $axios.$get(`${process.env.baseUrl}works`);
+      const uslugi = await $axios.$get(`${process.env.baseUrl}uslugi`);
+
+      uslugi.forEach(item => { item.active = false });
 
       return {
           main,
           works,
+          uslugi,
       }
   },
   head() {

@@ -5,15 +5,15 @@ Wrapper.serv
       .services
         .services__items
           .services-image(
-            v-for='(item, i) in services'
+            v-for='(item, i) in api'
             :key='100 + i'
             :class='{ "services-image--active": item.active }'
-            :style='{ backgroundImage: `url(/image/services/${ i + 1 }.jpg)` }'
+            :style='{ backgroundImage: `url(${item.image})` }'
           )
           nuxt-link.services__item(
-            v-for='(item, i) in services'
+            v-for='(item, i) in api'
             :key='i'
-            :to='item.url'
+            :to='`/uslugi/${item.id}`'
             @mouseover.native='item.active = true; hover = true'
             @mouseout.native='item.active = false; hover = false'
             :class='{ "services__item--color": hover }'
@@ -33,7 +33,7 @@ Wrapper.serv
                   </g>
               </svg>
             .services__item-title
-              H3(typed='sale') {{ item.title }}
+              H3(typed='sale') {{ item.name }}
               H4(typed='sale') от {{ item.price }} ₽
 </template>
 
@@ -46,20 +46,12 @@ import H4 from '~/plugins/H4'
 import { mapState } from 'vuex'
 
 export default {
+  props: ['api'],
   data() {
     return {
       services: [],
       hover: false
     }
-  },
-  computed: {
-    ...mapState('services', {
-      api: state => state.services
-    })
-  },
-  created() {
-    this.services = this.api
-    this.services.forEach(item => item.active = false)
   },
   components: {
     Wrapper,

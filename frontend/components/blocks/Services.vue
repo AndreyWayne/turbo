@@ -12,21 +12,21 @@ Wrapper.wr-1.services__block
                   img(src='/image/services.svg')
         .services__items
           .services-image(
-            v-for='(item, i) in services'
+            v-for='(item, i) in api'
             :key='100 + i'
             :class='{ "services-image--active": item.active }'
-            :style='{ backgroundImage: `url(/image/services/${ i + 1 }.jpg)` }'
+            :style='{ backgroundImage: `url(${item.image})` }'
           )
           nuxt-link.services__item(
-            v-for='(item, i) in services'
+            v-for='(item, i) in api'
             :key='i'
-            :to='item.url'
+            :to='`/uslugi/${item.id}`'
             @mouseover.native='item.active = true; hover = true'
             @mouseout.native='item.active = false; hover = false'
             :class='{ "services__item--color": hover }'
           )
             .services__item-head
-              p {{ item.index }}
+              p {{ i }}
               <svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <defs></defs>
                   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.49609375">
@@ -40,7 +40,7 @@ Wrapper.wr-1.services__block
                   </g>
               </svg>
             .services__item-title
-              H3(typed='sale') {{ item.title }}
+              H3(typed='sale') {{ item.name }}
               H4(typed='sale') от {{ item.price }} ₽
 </template>
 
@@ -50,23 +50,13 @@ import Container from '~/plugins/Container'
 import Section from '~/plugins/Section'
 import H3 from '~/plugins/H3'
 import H4 from '~/plugins/H4'
-import { mapState } from 'vuex'
 
 export default {
+  props: ['api'],
   data() {
     return {
-      services: [],
       hover: false
     }
-  },
-  computed: {
-    ...mapState('services', {
-      api: state => state.services
-    })
-  },
-  created() {
-    this.services = this.api
-    this.services.forEach(item => item.active = false)
   },
   components: {
     Wrapper,
@@ -89,8 +79,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    min-height: 960px;
-    height: 960px;
+    // min-height: 960px;
+    // height: 960px;
     position: relative;
     top: 0;
     left: 0;

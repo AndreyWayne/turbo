@@ -7,6 +7,12 @@ router.get('/uslugi', async (req, res) => {
     res.json(result.rows);
 });
 
+router.get('/uslugi/:id', async (req, res) => {
+    const result = await db.query(`SELECT * FROM uslugi WHERE id=${req.params.id}`);
+
+    res.json(result.rows[0]);
+});
+
 router.post('/uslugi', async (req, res) => {
     const body = req.body;
 

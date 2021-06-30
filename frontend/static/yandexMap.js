@@ -20,8 +20,8 @@ ymaps.ready(function() {
     //   // Необходимо указать данный тип макета.
     //   iconContentLayout: MyIconContentLayout
     // });
-    myPlacemarkWithContent = new ymaps.Placemark([55.100350, 61.357332], {
-        hintContent: 'Автосервис TURBO',
+    myPlacemarkWithContent = new ymaps.Placemark([55.100850, 61.357871], {
+        hintContent: 'Автосервис TURBO (Маслобазовая 5/4)',
         balloonContent: '',
     }, {
         // Опции.

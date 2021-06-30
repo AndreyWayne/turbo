@@ -15,7 +15,7 @@ div
       Section
         .photos
           .photo-wr(
-            v-for='(item, i) in photos.slice(0, 10)'
+            v-for='(item, i) in photos.slice(0, 16)'
             :key='item.id'
             :class='`photo-wr-${ i }`'
             data-aos="fade-up"
@@ -65,6 +65,12 @@ export default {
 
    @media (max-width: 767px) {
      padding-top: 50px;
+
+     background-color: #131313;
+    padding-bottom: 50px;
+    * {
+      color: white !important;
+    }
    }
 }
 

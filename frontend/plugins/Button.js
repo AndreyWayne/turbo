@@ -23,7 +23,7 @@ export default styled('button', config)`
           outline: none;
           background: none;
           border-bottom: 2px solid black;
-          opacity: .3;
+          cursor: pointer;
         `
     }
   }}

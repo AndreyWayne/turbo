@@ -9,11 +9,11 @@ Wrapper.service
         .content__left
           H1(typed='service') {{ title }}
           Title(typed='semibold') Цена: от {{ price }} ₽
-          .image(:style='{ backgroundImage: `url(/image/services/${ image }.jpg)` }')
+          .image(:style='{ backgroundImage: `url(${ image })` }')
         .content__right
           .content__right--title
             H2(typed='main') О услуге
-            Title(typed='normal' v-html='text')
+            Title(typed='normal' v-html='text').text
 </template>
 
 <script>
@@ -32,11 +32,6 @@ export default {
     'image',
     'text'
   ],
-  computed: {
-    ...mapState('photos', {
-      api: state => state.photos
-    })
-  },
   components: {
     Wrapper,
     Container,
@@ -75,6 +70,10 @@ export default {
     color: white;
     text-transform: uppercase;
   }
+}
+
+.text {
+  white-space: pre-line;
 }
 
 .content {

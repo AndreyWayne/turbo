@@ -6,19 +6,15 @@ Wrapper.about
         .about-content__head
           H1(
             typed='about'
-          ) Лучший автосервис Челябинска
+          ) {{ api.name }}
           Title(
             typed='semibold'
-          ) c 2007 – 2019г.
+          ) c 2007 – {{ new Date().getFullYear() }}г.
         span Turbo
       .about-content.about-content--right
         img(src='/image/about.svg')
         .about-content__title
-          Title(typed='regular-16') Занимаемся молярно-кузовным ремонтом автомобилей уже с 2007 года. За это время покрасили и восстановили более 2500 машин.
-          Title(typed='regular-16') В работе используем современное оборудование. В арсенале: стапель, профессиональная покрасочная камера, немецкие пистолеты SATA, шлифмашинки MIRKA.
-          Title(typed='regular-16').about-content__title--line Мы официальные дилеры микс системы TURBO (HYMAX). На каждом этапе работы используем только заводские материалы: шпаклёвка, грунтовка, автоэмаль и лак. Поэтому отвечаем за качество покраски вашего автомобиля.
-          Title(typed='regular-16') Самостоятельно подбираем автоэмаль. Анализируем цвет при помощи современного многолучевого спектрофотометра и подбираем нужный при помощи программного обеспечения. Регулярно, 2–3 раза в год, к нам приезжают специалисты HYMAX и обучают последним технологиям покраски.
-          Title(typed='regular-16') Продаём лакокрасочные материалы оптом и в розницу. Предлагаем краску Hymax, расходные материалы Nuovo Corso и Hymax, абразив MIRKA. Ответственно подходим к каждому заказу и даём гарантию качества 1 год.
+          div(v-html="api.description").content-block
 </template>
 
 <script>
@@ -29,6 +25,7 @@ import H1 from '~/plugins/H1'
 import Title from '~/plugins/Title'
 
 export default {
+  props: ['api'],
   data() {
     return {
       init: false
@@ -47,7 +44,45 @@ export default {
 }
 </script>
 
+<style lang="less">
+.content-block {
+  p {
+      color: white;
+      line-height: 29px;
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+  p {
+    font-family: Regular;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    @media screen and (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+
+  .line {
+    color: #C8C9B9;
+    padding-left: 30px;
+    position: relative;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: #C8C9B9;
+      content: ''
+    }
+  }
+}
+</style>
+
 <style scoped lang='less'>
+
 .about {
   background-color: #131313;
 }

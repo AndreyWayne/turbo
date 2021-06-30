@@ -16,9 +16,11 @@ export default {
       isLoading: true,
     }
   },
-  mounted() {
+  async mounted() {
     this.isLoading = false;
     AOS.init({disable: 'mobile'});
+
+    await this.$store.dispatch('setMain');
   },
   components: {
     Loader,

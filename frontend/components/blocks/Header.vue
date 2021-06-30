@@ -21,12 +21,12 @@ header(:class="{'header__black': headerBlack}")
     ul.header__contacts
       li
         a(
-          href='mailto:89087043800'
-        ) +7 (908)-704-38-00
+          :href='`tel:${main.phone}`'
+        ) {{ main.phone }}
       li
         a(
-          href='mailto:info@74autoturbo.ru'
-        ) info@74autoturbo.ru
+          :href='`mailto:${main.email}`'
+        ) {{ main.email }}
   .mobile
     transition(name='fade')
       .menu-gl(v-if='open')
@@ -48,14 +48,14 @@ header(:class="{'header__black': headerBlack}")
             ul
               li
                 a(
-                  href='mailto:89087043800'
-                ) +7 (908)-704-38-00
+                  :href='`tel:${main.phone}`'
+                ) {{ main.phone }}
               li
                 a(
-                  href='mailto:info@74autoturbo.ru'
-                ) info@74autoturbo.ru
+                  :href='`mailto:${main.email}`'
+                ) {{ main.email }}
               li
-                p Челябинск, Маслобазовая улица, 5Д, 454045
+                p {{ main.address }}
     nuxt-link(to='/').link-logo TURBO
     .menu-button(@click='openMenu')
       .menu-but(:class='{ closes: open }')
@@ -70,6 +70,11 @@ export default {
     return {
       open: false,
       headerBlack: false,
+    }
+  },
+  computed: {
+    main() {
+      return this.$store.state.main;
     }
   },
   methods: {

@@ -8,54 +8,63 @@
             span Свяжитесь
             |  с нами
           .head-title
-            Title(typed='regular-16') Будние дни: с 09:00 до 21:00
-            Title(typed='regular-16') Выходные дни: с 10:00 до 21:00
+            Title(typed='regular-16') {{ main.contact_time1 }}
+            Title(typed='regular-16') {{ main.contacts_time2 }}
         .form
           .data.form-el
             .data-el
               H4(typed='footer') Адрес
-              Title(typed='footer') Россия, Челябинск, Маслобазовая улица, 5Д, 454045
+              Title(typed='footer') {{ main.address }}
             .data-el
               H4(typed='footer') Телефон
               Link(
-                href='tel:89087043800'
+                :href='`tel:${main.phone}`'
                 typed='footer'
-              ) +7 (908)-704-38-00
+              ) {{ main.phone }}
             .data-el
               H4(typed='footer') E-mail
               Link(
-                href='mailto: info@74autoturbo.ru'
+                :href='`mailto: ${ main.email }`'
                 typed='footer'
-              ) info@74autoturbo.ru
+              ) {{ main.email }}
             .data-el
               H4(typed='footer') Вконтакте
               Link(
-                href='https://vk.com/avtoturbo74'
+                :href='main.vk'
                 target='_blank'
                 typed='footer'
               ) avtoturbo74
             .data-el
               H4(typed='footer') Instagram
               Link(
-                href='https://www.instagram.com/servis.turbo/?hl=ru'
+                :href='main.inst'
                 target='_blank'
                 typed='footer'
               ) servis.turbo
-          form.form-el
+          form(@submit.prevent="send").form-el
             Input(
               placeholder='Введите имя'
               name='name'
               typed='footer'
+              v-model="name"
             ).input
             Input(
               placeholder='Введите E-mail'
               name='email'
               typed='footer'
+              v-model="email"
             ).input
             Input(
               placeholder='Введите номер телефон'
               name='name'
               typed='footer'
+              v-model="phone"
+            ).input
+            Input(
+              placeholder='Сообщение'
+              name='name'
+              typed='footer'
+              v-model="message"
             ).input
             Button(typed='footer') Отправить
   .wayne
@@ -76,6 +85,54 @@ import Input from '~/plugins/Input'
 import Button from '~/plugins/Button'
 
 export default {
+  data() {
+    return {
+      name: '',
+      phone: '',
+      message: '',
+      email: '',
+    }
+  },
+  computed: {
+    main() {
+      return this.$store.state.main;
+    }
+  },
+  methods: {
+    async send() {
+      if (!this.name.length) {
+        alert('Заполните имя')
+
+        return;
+      }
+
+      if (!this.phone) {
+        alert('Заполните телефон')
+
+        return;
+      }
+
+      if (!this.message.length) {
+        alert('Введите сообщение')
+
+        return;
+      }
+
+      await this.$axios.$post(`${process.env.baseUrl}mailto`, {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+      });
+
+      this.name = '';
+      this.phone = '';
+      this.message = '';
+      this.email = '';
+
+      alert('Сообщение отправлено, в ближайшее время с вами свяжутся');
+    }
+  },
   components: {
     Container,
     Title,

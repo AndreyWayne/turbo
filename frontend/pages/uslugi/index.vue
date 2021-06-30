@@ -4,7 +4,7 @@
   H1(
     title='Услуги'
   )
-  Services
+  Services(:api="uslugi")
   Footer
 </template>
 
@@ -15,6 +15,15 @@ import Services from '~/components/blocks/Services_v2'
 import Footer from '~/components/blocks/Footer'
 
 export default {
+  async asyncData({$axios}) {
+    const uslugi = await $axios.$get(`${process.env.baseUrl}uslugi`);
+
+    uslugi.forEach(item => { item.active = false });
+
+    return {
+      uslugi,
+    }
+  },
   components: {
     Header,
     H1,

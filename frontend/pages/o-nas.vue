@@ -1,7 +1,7 @@
 <template lang='pug'>
 .page
   Header
-  About
+  About(:api="result")
   Footer
 </template>
 
@@ -15,6 +15,13 @@ export default {
     Header,
     About,
     Footer
+  },
+  async asyncData({$axios}) {
+    const result = await $axios.$get(`${process.env.baseUrl}about`);
+
+    return {
+      result
+    }
   },
   head() {
     return {

@@ -2,10 +2,10 @@
 .page
   Header
   Service(
-    :title='service.title'
-    :price='service.price'
-    :image='service.image'
-    :text='service.text'
+    :title='result.name'
+    :price='result.price'
+    :image='result.image'
+    :text='result.description'
   )
   Footer
 </template>
@@ -14,32 +14,23 @@
 import Header from '~/components/blocks/Header'
 import Service from '~/components/blocks/Service'
 import Footer from '~/components/blocks/Footer'
-import { mapState } from 'vuex'
 
 export default {
-  asyncData({ store, route }) {
-    let { services } = store.state.services
-
-    let service = services.find(item => {
-      return item.url === route.path
-    })
+  async asyncData({$axios, params}) {
+    const result = await $axios.$get(`${process.env.baseUrl}uslugi/${params.id}`);
 
     return {
-      service
+      result,
     }
   },
   head() {
     return {
-      title: this.service.seo.title,
+      title: this.result.title,
       meta: [
-        { name: 'description', content: this.service.seo.description },
-        { name: 'keywords', content: this.service.seo.keywords },
-        { name: 'og:title', content: this.service.seo.title },
-        { name: 'og:description', content: this.service.seo.description },
+        { name: 'description', content: this.result.description.slice(0, 80) },
+        { name: 'og:title', content: this.result.title },
+        { name: 'og:description', content: this.result.description.slice(0, 80) },
       ],
-      link: [
-        { rel: 'canonical', href: this.$route.fullPath }
-      ]
     }
   },
   components: {

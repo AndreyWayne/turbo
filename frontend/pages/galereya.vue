@@ -5,7 +5,7 @@
     title='Галерея'
     :link='title'
   )
-  Passage
+  Passage(:api="works")
   Footer
 </template>
 
@@ -16,12 +16,15 @@ import Passage from '~/components/blocks/Passage'
 import Footer from '~/components/blocks/Footer'
 
 export default {
-  data() {
+  async asyncData({$axios}) {
+    const works = await $axios.$get(`${process.env.baseUrl}works`);
+
     return {
       title: {
         href: 'https://vk.com/album-144263937_242905323',
         title: 'Смотреть все работы'
-      }
+      },
+      works,
     }
   },
   head() {

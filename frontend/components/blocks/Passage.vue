@@ -4,15 +4,16 @@ Wrapper.wr
     Section
       .photos
         .photo-wr(
-          v-for='(item, i) in photos'
-          :key='i'
+          v-for='(item, i) in api'
+          :key='item.id'
           :class='`photo-wr-${ i }`'
           data-aos="fade-up"
           data-aos-duration="700"
         )
-          .photo(:style='{ backgroundImage: `url(/image/works/${ i + 1 }.jpg)` }')
+          .photo(:style='{ backgroundImage: `url(${item.image}` }')
           .photo-title
-            Title(typed='semibold') {{ item.title }}
+            Title(typed='semibold') {{ item.name }}
+            Title(typed='min-14' class="min") {{ item.description }}
 </template>
 
 <script>
@@ -23,24 +24,9 @@ import H2 from '~/plugins/H2'
 import Title from '~/plugins/Title'
 import ParallaxContainer from '~/components/elements/ParallaxContainer'
 import ParallaxElement from '~/components/elements/ParallaxElement'
-import { mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      photos: [1, 1,1 ]
-    }
-  },
-  computed: {
-    ...mapState('fullPhotos', {
-      api: state => state.photos
-    })
-  },
-  created() {
-    this.photos = this.api
-  },
-  mounted() {
-  },
+  props: ['api'],
   components: {
     Wrapper,
     Container,
@@ -56,6 +42,12 @@ export default {
 <style scoped lang='less'>
 .wr {
   background-color: #131313;
+}
+
+.min {
+  max-width: 340px;
+  line-height: 22px;
+  opacity: 0.8;
 }
 
 section {
