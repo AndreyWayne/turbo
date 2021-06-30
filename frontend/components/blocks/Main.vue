@@ -183,6 +183,8 @@ h1 {
    background-clip: text;
    margin-bottom: 14px;
    text-transform: uppercase;
+   display: flex;
+   flex-direction: column;
 
    @media (max-width: 767px) {
        font-size: 42px;
