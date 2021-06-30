@@ -5,7 +5,6 @@ module.exports = {
   ** Headers of the page
   */
   cache: true,
-  target: 'static',
   env: {
     baseUrl: process.env.BASE_URL || 'http://192.168.0.194:9000/api/'
   },

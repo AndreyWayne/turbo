@@ -1,9 +1,0 @@
-User-Agent: *
-Disallow: /cgi-bin
-Host: https://74autoturbo.ru/
-
-User-agent: Yandex
-Disallow: /cgi-bin
-
-
-Sitemap: https://74autoturbo.ru/sitemap.xml
