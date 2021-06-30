@@ -9,7 +9,7 @@ const transport = nodemailer.createTransport(smtpTransport({
         pass:'ipadib339'
     },
     host: 'smtp.gmail.com',
-    port: 465,
+    port: 587,
     tls: {
         rejectUnauthorized:true
     },
