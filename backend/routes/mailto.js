@@ -9,11 +9,6 @@ const transport = nodemailer.createTransport(smtpTransport({
         pass:'ipadib339'
     },
     host: 'smtp.gmail.com',
-    port: 587,
-    tls: {
-        rejectUnauthorized: false
-    },
-    secure: false,
 }));
 
 router.post('/mailto', async (req, res) => {
