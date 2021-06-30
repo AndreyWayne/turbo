@@ -34,6 +34,8 @@ router.post('/mailto', async (req, res) => {
             `,
         });
 
+        console.log(result)
+
         res.json('ok');
     } catch (error) {
         console.log(error);
