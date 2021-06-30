@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport(smtpTransport({
 router.post('/mailto', async (req, res) => {
     const body = req.body;
     try {
-        await transport.sendMail({
+        const result = await transport.sendMail({
             from: `"Сообщение с сайта TURBO" <'andreywayne97@gmail.com'>`,
             to: '74autoturbo@gmail.com',
             html: `
@@ -29,11 +29,11 @@ router.post('/mailto', async (req, res) => {
             `,
         });
 
+        console.log(result)
+
         res.json('ok');
     } catch (error) {
-        return { 
-            status: 'error' 
-        };
+        console.log(error);
     }
 })
 
