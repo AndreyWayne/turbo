@@ -160,6 +160,7 @@ button {
     @media (max-width: 767px) {
         // min-height: 0;
         // background-size: auto 120px;
+        min-height: calc(var(--vh, 1vh) * 100);;
         background-image: url('/image/index-mob.jpg');
         background-position: bottom right;
     }

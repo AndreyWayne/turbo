@@ -2,64 +2,55 @@
   {
     "name": "galereya",
     "path": "/galereya",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/galereya.vue",
-    "chunkName": "pages/galereya",
-    "_name": "_a66a9b10"
+    "component": "/usr/src/client/pages/galereya.vue",
+    "chunkName": "pages/galereya"
   },
   {
     "name": "kontakty",
     "path": "/kontakty",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/kontakty.vue",
-    "chunkName": "pages/kontakty",
-    "_name": "_4e3858fa"
+    "component": "/usr/src/client/pages/kontakty.vue",
+    "chunkName": "pages/kontakty"
   },
   {
     "name": "o-nas",
     "path": "/o-nas",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/o-nas.vue",
-    "chunkName": "pages/o-nas",
-    "_name": "_0c78ecf0"
+    "component": "/usr/src/client/pages/o-nas.vue",
+    "chunkName": "pages/o-nas"
   },
   {
     "name": "otzyvy",
     "path": "/otzyvy",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/otzyvy.vue",
-    "chunkName": "pages/otzyvy",
-    "_name": "_3aead151"
+    "component": "/usr/src/client/pages/otzyvy.vue",
+    "chunkName": "pages/otzyvy"
   },
   {
     "name": "sobytiya",
     "path": "/sobytiya",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/sobytiya/index.vue",
-    "chunkName": "pages/sobytiya/index",
-    "_name": "_94e0e7c6"
+    "component": "/usr/src/client/pages/sobytiya/index.vue",
+    "chunkName": "pages/sobytiya/index"
   },
   {
     "name": "uslugi",
     "path": "/uslugi",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/uslugi/index.vue",
-    "chunkName": "pages/uslugi/index",
-    "_name": "_77c3ba94"
+    "component": "/usr/src/client/pages/uslugi/index.vue",
+    "chunkName": "pages/uslugi/index"
   },
   {
     "name": "sobytiya-id",
     "path": "/sobytiya/:id",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/sobytiya/_id.vue",
-    "chunkName": "pages/sobytiya/_id",
-    "_name": "_4cdbf1c5"
+    "component": "/usr/src/client/pages/sobytiya/_id.vue",
+    "chunkName": "pages/sobytiya/_id"
   },
   {
     "name": "uslugi-id",
     "path": "/uslugi/:id",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/uslugi/_id.vue",
-    "chunkName": "pages/uslugi/_id",
-    "_name": "_51bd4ac4"
+    "component": "/usr/src/client/pages/uslugi/_id.vue",
+    "chunkName": "pages/uslugi/_id"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/andrejkolosov/Developer/TURBO_PROD/frontend/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_531e48d0"
+    "component": "/usr/src/client/pages/index.vue",
+    "chunkName": "pages/index"
   }
 ]

@@ -21,6 +21,8 @@ export default {
     AOS.init({disable: 'mobile'});
 
     await this.$store.dispatch('setMain');
+    let vh = window.innerHeight * 0.01
+		document.documentElement.style.setProperty('--vh', `${vh}px`)
   },
   components: {
     Loader,
@@ -39,6 +41,7 @@ export default {
 [data-aos^=fade][data-aos^=fade] {
   @media (max-width: 767px) {
     opacity: 1;
+    transform: none;
   }
 } 
 [data-aos="about"].aos-animate {

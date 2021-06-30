@@ -13,11 +13,10 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_7ab85506 from 'nuxt_plugin_axios_7ab85506' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_vuescrollto_62d81e43 from 'nuxt_plugin_vuescrollto_62d81e43' // Source: ./vue-scrollto.js (mode: 'client')
-import nuxt_plugin_yandexmetrikaplugin9d1afbba_953b967c from 'nuxt_plugin_yandexmetrikaplugin9d1afbba_953b967c' // Source: ./yandex-metrika.plugin.9d1afbba.js (mode: 'client')
-import nuxt_plugin_googleanalytics_bfbc7940 from 'nuxt_plugin_googleanalytics_bfbc7940' // Source: ./google-analytics.js (mode: 'client')
-import nuxt_plugin_moment_2a04455c from 'nuxt_plugin_moment_2a04455c' // Source: ./moment.js (mode: 'all')
+import nuxt_plugin_axios_31ad2cb8 from 'nuxt_plugin_axios_31ad2cb8' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_vuescrollto_0c7b8836 from 'nuxt_plugin_vuescrollto_0c7b8836' // Source: ./vue-scrollto.js (mode: 'client')
+import nuxt_plugin_googleanalytics_53a04002 from 'nuxt_plugin_googleanalytics_53a04002' // Source: ./google-analytics.js (mode: 'client')
+import nuxt_plugin_moment_0caf5c74 from 'nuxt_plugin_moment_0caf5c74' // Source: ./moment.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -70,7 +69,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"TURBO | кузовной ремонт и автопокраска в Челябинске","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, nofollow"},{"name":"copyright","lang":"ru","content":"andreywayne.ru"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"http-equiv":"content-language","content":"ru"},{"property":"og:locale","content":"ru_Ru"},{"name":"yandex-verification","content":"1e02698097de6b62"},{"name":"google-site-verification","content":"Nri6jFGFA6NIQDMssp-ea-lW4Qs8MoBdghbK_7w0yso"}],"link":[{"rel":"shortcut icon","type":"image\u002Fpng","href":"\u002Fimage\u002Ffavicon.png"},{"rel":"sitemap","href":"sitemap.xml","type":"application\u002Fxml"},{"href":"https:\u002F\u002Funpkg.com\u002Faos@2.3.1\u002Fdist\u002Faos.css","rel":"stylesheet"}],"script":[{"src":"https:\u002F\u002Fapi-maps.yandex.ru\u002F2.1\u002F?lang=ru_RU"},{"src":"\u002FyandexMap.js"},{"src":"https:\u002F\u002Fmc.yandex.ru\u002Fmetrika\u002Fwatch.js","async":""}],"style":[]},
+    head: {"title":"TURBO | кузовной ремонт и автопокраска в Челябинске","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, nofollow"},{"name":"copyright","lang":"ru","content":"andreywayne.ru"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"http-equiv":"content-language","content":"ru"},{"property":"og:locale","content":"ru_Ru"},{"name":"yandex-verification","content":"1e02698097de6b62"},{"name":"google-site-verification","content":"Nri6jFGFA6NIQDMssp-ea-lW4Qs8MoBdghbK_7w0yso"}],"link":[{"rel":"shortcut icon","type":"image\u002Fpng","href":"\u002Fimage\u002Ffavicon.png"},{"rel":"sitemap","href":"sitemap.xml","type":"application\u002Fxml"},{"href":"https:\u002F\u002Funpkg.com\u002Faos@2.3.1\u002Fdist\u002Faos.css","rel":"stylesheet"}],"script":[{"src":"https:\u002F\u002Fapi-maps.yandex.ru\u002F2.1\u002F?lang=ru_RU"},{"src":"\u002FyandexMap.js"}],"style":[]},
 
     store,
     router,
@@ -199,24 +198,20 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_7ab85506 === 'function') {
-    await nuxt_plugin_axios_7ab85506(app.context, inject)
+  if (typeof nuxt_plugin_axios_31ad2cb8 === 'function') {
+    await nuxt_plugin_axios_31ad2cb8(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_vuescrollto_62d81e43 === 'function') {
-    await nuxt_plugin_vuescrollto_62d81e43(app.context, inject)
+  if (process.client && typeof nuxt_plugin_vuescrollto_0c7b8836 === 'function') {
+    await nuxt_plugin_vuescrollto_0c7b8836(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_yandexmetrikaplugin9d1afbba_953b967c === 'function') {
-    await nuxt_plugin_yandexmetrikaplugin9d1afbba_953b967c(app.context, inject)
+  if (process.client && typeof nuxt_plugin_googleanalytics_53a04002 === 'function') {
+    await nuxt_plugin_googleanalytics_53a04002(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_googleanalytics_bfbc7940 === 'function') {
-    await nuxt_plugin_googleanalytics_bfbc7940(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_moment_2a04455c === 'function') {
-    await nuxt_plugin_moment_2a04455c(app.context, inject)
+  if (typeof nuxt_plugin_moment_0caf5c74 === 'function') {
+    await nuxt_plugin_moment_0caf5c74(app.context, inject)
   }
 
   // Lock enablePreview in context
