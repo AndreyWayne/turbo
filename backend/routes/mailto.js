@@ -11,7 +11,7 @@ const transport = nodemailer.createTransport(smtpTransport({
     host: 'smtp.gmail.com',
     port: 587,
     tls: {
-        rejectUnauthorized:true
+        rejectUnauthorized: false
     },
     secure: false,
 }));
