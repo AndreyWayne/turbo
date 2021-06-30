@@ -8,6 +8,9 @@ const transport = nodemailer.createTransport(smtpTransport({
     auth: {
         user: process.env.MAIL_USER || 'andreywayne97@gmail.com',
         pass: process.env.MAIL_PASSWORD || 'ipadib1488'
+    },
+    tls: { 
+        rejectUnauthorized: false 
     }
 }));
 
