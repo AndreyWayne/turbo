@@ -6,7 +6,7 @@ module.exports = {
   */
   cache: true,
   env: {
-    baseUrl: process.env.BASE_URL || 'http://192.168.0.194:9000/api/'
+    baseUrl: 'http://88.212.253.217:9000/api/'
   },
   head: {
     title: 'TURBO | кузовной ремонт и автопокраска в Челябинске',
