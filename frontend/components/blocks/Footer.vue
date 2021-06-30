@@ -41,7 +41,7 @@
                 target='_blank'
                 typed='footer'
               ) servis.turbo
-          form(@submit.prevent="send").form-el
+          form(@submit.prevent="forms").form-el
             Input(
               placeholder='Введите имя'
               name='name'
@@ -66,7 +66,7 @@
               typed='footer'
               v-model="message"
             ).input
-            Button(typed='footer') Отправить
+            Button(typed='footer' @click="send") Отправить
   .wayne
     Title(typed='min-14') Дизайн и разработка
     Link(
@@ -99,6 +99,9 @@ export default {
     }
   },
   methods: {
+    forms() {
+      console.log(1)
+    },
     async send() {
       if (!this.name.length) {
         alert('Заполните имя')
