@@ -7,6 +7,13 @@
     "_name": "_9b766d4a"
   },
   {
+    "name": "auth",
+    "path": "/auth",
+    "component": "/usr/src/admin/pages/auth.vue",
+    "chunkName": "pages/auth",
+    "_name": "_f228286c"
+  },
+  {
     "name": "main",
     "path": "/main",
     "component": "/usr/src/admin/pages/main.vue",

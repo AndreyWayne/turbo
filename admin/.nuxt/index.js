@@ -14,6 +14,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_plugin_9ec45730 from 'nuxt_plugin_plugin_9ec45730' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_plugin_6ed80886 from 'nuxt_plugin_plugin_6ed80886' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_cookieuniversalnuxt_9b6781b4 from 'nuxt_plugin_cookieuniversalnuxt_9b6781b4' // Source: ./cookie-universal-nuxt.js (mode: 'all')
 import nuxt_plugin_axios_61cd5b7e from 'nuxt_plugin_axios_61cd5b7e' // Source: ./axios.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -184,6 +185,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_6ed80886 === 'function') {
     await nuxt_plugin_plugin_6ed80886(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_cookieuniversalnuxt_9b6781b4 === 'function') {
+    await nuxt_plugin_cookieuniversalnuxt_9b6781b4(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_61cd5b7e === 'function') {

@@ -102,6 +102,7 @@
 
 <script>
 export default {
+    middleware: 'auth',
     async asyncData({$axios}) {
         const items = await $axios.$get(`${process.env.baseUrl}works`);
 

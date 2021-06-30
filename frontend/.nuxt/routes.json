@@ -3,63 +3,54 @@
     "name": "galereya",
     "path": "/galereya",
     "component": "/usr/src/client/pages/galereya.vue",
-    "chunkName": "pages/galereya",
-    "_name": "_c9776fd4"
+    "chunkName": "pages/galereya"
   },
   {
     "name": "kontakty",
     "path": "/kontakty",
     "component": "/usr/src/client/pages/kontakty.vue",
-    "chunkName": "pages/kontakty",
-    "_name": "_71452dbe"
+    "chunkName": "pages/kontakty"
   },
   {
     "name": "o-nas",
     "path": "/o-nas",
     "component": "/usr/src/client/pages/o-nas.vue",
-    "chunkName": "pages/o-nas",
-    "_name": "_1b7508aa"
+    "chunkName": "pages/o-nas"
   },
   {
     "name": "otzyvy",
     "path": "/otzyvy",
     "component": "/usr/src/client/pages/otzyvy.vue",
-    "chunkName": "pages/otzyvy",
-    "_name": "_4f69366f"
+    "chunkName": "pages/otzyvy"
   },
   {
     "name": "sobytiya",
     "path": "/sobytiya",
     "component": "/usr/src/client/pages/sobytiya/index.vue",
-    "chunkName": "pages/sobytiya/index",
-    "_name": "_6844198a"
+    "chunkName": "pages/sobytiya/index"
   },
   {
     "name": "uslugi",
     "path": "/uslugi",
     "component": "/usr/src/client/pages/uslugi/index.vue",
-    "chunkName": "pages/uslugi/index",
-    "_name": "_0a77b954"
+    "chunkName": "pages/uslugi/index"
   },
   {
     "name": "sobytiya-id",
     "path": "/sobytiya/:id",
     "component": "/usr/src/client/pages/sobytiya/_id.vue",
-    "chunkName": "pages/sobytiya/_id",
-    "_name": "_d994ef3a"
+    "chunkName": "pages/sobytiya/_id"
   },
   {
     "name": "uslugi-id",
     "path": "/uslugi/:id",
     "component": "/usr/src/client/pages/uslugi/_id.vue",
-    "chunkName": "pages/uslugi/_id",
-    "_name": "_0d8c00bc"
+    "chunkName": "pages/uslugi/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/usr/src/client/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_0fbb4a8c"
+    "chunkName": "pages/index"
   }
 ]
