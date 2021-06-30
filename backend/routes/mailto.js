@@ -9,6 +9,7 @@ const transport = nodemailer.createTransport(smtpTransport({
         user: process.env.MAIL_USER || 'andreywayne97@gmail.com',
         pass: process.env.MAIL_PASSWORD || 'ipadib1488'
     },
+    port: 587,
     tls: { 
         rejectUnauthorized: false 
     }
