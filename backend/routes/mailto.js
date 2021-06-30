@@ -10,9 +10,7 @@ const transport = nodemailer.createTransport(smtpTransport({
         pass: process.env.MAIL_PASSWORD || 'ipadib1488'
     },
     port: 587,
-    tls: { 
-        rejectUnauthorized: false 
-    }
+    secure: false,
 }));
 
 router.post('/mailto', async (req, res) => {
