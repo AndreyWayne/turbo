@@ -3,20 +3,20 @@ const nodemailer = require('nodemailer');
 
 const router = require('express').Router();
 
-const transport = nodemailer.createTransport(smtpTransport({
+const transport = nodemailer.createTransport({
+    service: 'Yandex', // no need to set host or port etc.
     auth: {
-        user: '74autoturbo@gmail.com',
-        pass:'ipadib339'
-    },
-    host: 'smtp.gmail.com',
-}));
+        user: 'avtoservisturbo@yandex.ru',
+        pass: 'ipadib339'
+    }
+});
 
 router.post('/mailto', async (req, res) => {
     const body = req.body;
     try {
         const result = await transport.sendMail({
-            from: `74autoturbo@gmail.com`,
-            to: '74autoturbo@gmail.com',
+            from: 'avtoservisturbo@yandex.ru',
+            to: 'avtoservisturbo@yandex.ru',
             html: `
                 <strong>Имя: ${body.name}</strong>
                 <br>
