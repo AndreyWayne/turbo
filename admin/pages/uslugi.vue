@@ -225,6 +225,7 @@ export default {
 .v-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
 }
 .v-card__text {
