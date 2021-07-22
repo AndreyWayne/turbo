@@ -84,6 +84,13 @@ export default {
   bottom: 25px;
   background: black;;
   right: 25px;
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .bar {
+    display: block;
+  }
 }
 
 .v-navigation-drawer--fixed {
