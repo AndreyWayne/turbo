@@ -81,6 +81,7 @@
                         :src="item.image"
                         class="grey lighten-2"
                         height="270"
+                        max-height="270"
                     >
                     </v-img>
 
@@ -224,8 +225,16 @@ export default {
 .v-card {
     display: flex;
     flex-direction: column;
+
 }
 .v-card__text {
     white-space: pre-line;
+}
+
+@media (max-width: 767px) {
+    .child-flex {
+        max-width: 100% !important;
+        flex: none;
+    }
 }
 </style>

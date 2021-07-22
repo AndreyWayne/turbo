@@ -27,6 +27,14 @@
     <v-main>
       <v-container>
         <Nuxt />
+          <v-btn
+              icon
+              class="bar"
+              dark
+              @click.stop="drawer = !drawer"
+          >
+              <v-icon dark>mdi-menu</v-icon>
+          </v-btn>
       </v-container>
     </v-main>
   </v-app>
@@ -69,3 +77,16 @@ export default {
     },
 }
 </script>
+
+<style>
+.bar {
+  position: fixed;
+  bottom: 25px;
+  background: black;;
+  right: 25px;
+}
+
+.v-navigation-drawer--fixed {
+  min-height: 200vh;
+}
+</style>
