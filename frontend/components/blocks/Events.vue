@@ -45,7 +45,7 @@ section {
 .el {
   margin-bottom: 50px;
   @media screen and (max-width: 767px) {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
 }
 </style>

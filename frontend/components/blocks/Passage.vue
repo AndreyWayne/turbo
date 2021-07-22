@@ -68,7 +68,6 @@ section {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: grayscale(70%);
     &-title {
       padding-left: 40px;
       p {

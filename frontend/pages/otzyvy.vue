@@ -24,7 +24,9 @@ export default {
           items: comments
         }
       }
-    } = await axios.get(`https://api.vk.com/api.php?oauth=1&method=board.getComments&group_id=144263937&topic_id=38336550&v=5.58&access_token=c52c626bc52c626bc52c626be0c540c0fccc52cc52c626b9846811daf3a43f46fb06192`)
+    } = await axios.get(`https://api.vk.com/api.php?oauth=1&method=board.getComments&group_id=144263937&topic_id=38336550&count=100&v=5.58&access_token=c52c626bc52c626bc52c626be0c540c0fccc52cc52c626b9846811daf3a43f46fb06192`)
+
+    console.log(comments.length)
 
     let idComments = comments.map((item, i) => {
       return item.from_id
@@ -42,7 +44,7 @@ export default {
 
     comments.forEach(item => {
       full.forEach(_item => {
-        if (item.from_id === _item.id) {
+        if (item.from_id === _item.id && item.from_id != '12341491') {
           commonApi.push({
             name: `${ _item.first_name } ${ _item.last_name }`,
             date: item.date,

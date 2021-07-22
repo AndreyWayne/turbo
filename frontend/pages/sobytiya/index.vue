@@ -28,7 +28,7 @@ export default {
 
     return {
       title: {
-        href: 'https://vk.com/topic-144263937_38336550',
+        href: 'https://vk.com/avtoturbo74',
         title: 'Подписаться на оф. источник'
       },
       items

@@ -1,12 +1,14 @@
 <template lang='pug'>
 a(
   :href='transformLink'
-  :style='{ backgroundImage: `url(${ transformImage })` }'
 ).event
-  .title
-    H2(typed='classic') {{ transformTitle }}
-  .date
-    Title(typed='min-14') {{ transformDate }}
+  .image(:style='{ backgroundImage: `url(${ transformImage })` }')
+  img(:src="transformImage").img
+  .sub
+    .title
+      H2(typed='classic') {{ transformTitle }}
+    .date
+      Title(typed='min-14') {{ transformDate }}
 </template>
 
 <script>
@@ -63,17 +65,40 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.event {
-  max-width: calc(50% - 25px);
-  width: 100%;
-  height: 420px;
-  background: white;
+.sub {
   display: flex;
-  align-items: flex-end;
-  background-image: url(/image/services/1.jpg);
+}
+
+.img {
+  display: none;
+  width: 100%;
+  height: auto;
+  @media (max-width: 767px) {
+    display: flex;
+
+  }
+}
+
+.image {
+  height: 325px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+.event {
+  max-width: calc(50% - 25px);
+  width: 100%;
+  height: 475px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
   * {
     color: white;
   }
@@ -88,7 +113,7 @@ export default {
   }
   .date {
     width: 30%;
-    height: 100px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +124,7 @@ export default {
   }
   @media screen and (max-width: 767px) {
     max-width: 100%;
-    height: 300px;
+    height: auto;
     .date {
       p {
         font-size: 10px;

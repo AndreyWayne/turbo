@@ -3,30 +3,35 @@
     "name": "about",
     "path": "/about",
     "component": "/usr/src/admin/pages/about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_9b766d4a"
   },
   {
     "name": "auth",
     "path": "/auth",
     "component": "/usr/src/admin/pages/auth.vue",
-    "chunkName": "pages/auth"
+    "chunkName": "pages/auth",
+    "_name": "_f228286c"
   },
   {
     "name": "main",
     "path": "/main",
     "component": "/usr/src/admin/pages/main.vue",
-    "chunkName": "pages/main"
+    "chunkName": "pages/main",
+    "_name": "_310ca35b"
   },
   {
     "name": "uslugi",
     "path": "/uslugi",
     "component": "/usr/src/admin/pages/uslugi.vue",
-    "chunkName": "pages/uslugi"
+    "chunkName": "pages/uslugi",
+    "_name": "_39e8c6eb"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/usr/src/admin/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_5c06b7c0"
   }
 ]
