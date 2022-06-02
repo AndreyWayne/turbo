@@ -24,9 +24,7 @@ export default {
           items: comments
         }
       }
-    } = await axios.get(`https://api.vk.com/api.php?oauth=1&method=board.getComments&group_id=144263937&topic_id=38336550&count=100&v=5.58&access_token=c52c626bc52c626bc52c626be0c540c0fccc52cc52c626b9846811daf3a43f46fb06192`)
-
-    console.log(comments.length)
+    } = await axios.get(`https://api.vk.com/api.php?oauth=1&method=board.getComments&group_id=144263937&topic_id=38336550&count=100&v=5.81&access_token=c52c626bc52c626bc52c626be0c540c0fccc52cc52c626b9846811daf3a43f46fb06192`)
 
     let idComments = comments.map((item, i) => {
       return item.from_id
