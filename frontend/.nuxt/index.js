@@ -13,6 +13,8 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
+import nuxt_plugin_axios_7ab85506 from 'nuxt_plugin_axios_7ab85506' // Source: ./axios.js (mode: 'all')
+
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
 
@@ -79,7 +81,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"meta":[],"link":[],"style":[],"script":[]},
+    head: {"title":"TURBO | кузовной ремонт и автопокраска в Челябинске","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, nofollow"},{"name":"copyright","lang":"ru","content":"andreywayne.ru"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"http-equiv":"content-language","content":"ru"},{"property":"og:locale","content":"ru_Ru"},{"name":"yandex-verification","content":"1e02698097de6b62"},{"name":"google-site-verification","content":"Nri6jFGFA6NIQDMssp-ea-lW4Qs8MoBdghbK_7w0yso"}],"link":[{"rel":"shortcut icon","type":"image\u002Fpng","href":"\u002Fimage\u002Ffavicon.png"},{"rel":"sitemap","href":"sitemap.xml","type":"application\u002Fxml"},{"href":"https:\u002F\u002Funpkg.com\u002Faos@2.3.1\u002Fdist\u002Faos.css","rel":"stylesheet"}],"script":[{"src":"https:\u002F\u002Fapi-maps.yandex.ru\u002F2.1\u002F?lang=ru_RU"},{"src":"\u002FyandexMap.js"}],"style":[]},
 
     store,
     router,
@@ -210,6 +212,10 @@ async function createApp(ssrContext, config = {}) {
     }
   }
   // Plugin execution
+
+  if (typeof nuxt_plugin_axios_7ab85506 === 'function') {
+    await nuxt_plugin_axios_7ab85506(app.context, inject)
+  }
 
   // Lock enablePreview in context
   if (process.static && process.client) {

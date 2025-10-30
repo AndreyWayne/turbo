@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 .page
   Header
   Main(:api="main")
@@ -9,40 +9,55 @@
 </template>
 
 <script>
-import Header from '~/components/blocks/Header'
-import Main from '~/components/blocks/Main'
-import Services from '~/components/blocks/Services'
-import Photos from '~/components/blocks/Photos'
-import Footer from '~/components/blocks/Footer'
-import WhoAre from '~/components/blocks/WhoAre'
+import Header from "~/components/blocks/Header";
+import Main from "~/components/blocks/Main";
+import Services from "~/components/blocks/Services";
+import Photos from "~/components/blocks/Photos";
+import Footer from "~/components/blocks/Footer";
+import WhoAre from "~/components/blocks/WhoAre";
 
 export default {
-  async asyncData({$axios}) {
-      const main = await $axios.$get(`${process.env.baseUrl}main`);
-      const works = await $axios.$get(`${process.env.baseUrl}works`);
-      const uslugi = await $axios.$get(`${process.env.baseUrl}uslugi`);
+  async asyncData({ $axios }) {
+    const main = await $axios.$get(`${process.env.baseUrl}main`);
+    const works = await $axios.$get(`${process.env.baseUrl}works`);
+    const uslugi = await $axios.$get(`${process.env.baseUrl}uslugi`);
 
-      uslugi.forEach(item => { item.active = false });
+    uslugi.forEach((item) => {
+      item.active = false;
+    });
 
-      return {
-          main,
-          works,
-          uslugi,
-      }
+    return {
+      main,
+      works,
+      uslugi,
+    };
   },
   head() {
     return {
-      title: 'TURBO | кузовной ремонт и автопокраска в Челябинске',
+      title: "TURBO | кузовной ремонт и автопокраска в Челябинске",
       meta: [
-        { name: 'description', content: 'Лучший автосервис в Челябинске по кузовному ремонту и автопокраске' },
-        { name: 'og:title', content: 'TURBO | кузовной ремонт и автопокраска в Челябинске' },
-        { name: 'keywords', content: 'turbo, кузовной ремонт, автопокраска, челябинск, автосервис' },
-        { name: 'og:description', content: 'Лучший автосервис в Челябинске по кузовному ремонту и автопокраске' },
+        {
+          name: "description",
+          content:
+            "Лучший автосервис в Челябинске по кузовному ремонту и автопокраске",
+        },
+        {
+          name: "og:title",
+          content: "TURBO | кузовной ремонт и автопокраска в Челябинске",
+        },
+        {
+          name: "keywords",
+          content:
+            "turbo, кузовной ремонт, автопокраска, челябинск, автосервис",
+        },
+        {
+          name: "og:description",
+          content:
+            "Лучший автосервис в Челябинске по кузовному ремонту и автопокраске",
+        },
       ],
-      link: [
-        { rel: 'canonical', href: this.$route.fullPath }
-      ]
-    }
+      link: [{ rel: "canonical", href: this.$route.fullPath }],
+    };
   },
   components: {
     Header,
@@ -51,6 +66,6 @@ export default {
     Photos,
     Footer,
     WhoAre,
-  }
-}
+  },
+};
 </script>
