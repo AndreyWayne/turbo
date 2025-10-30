@@ -25,16 +25,15 @@ services:
       - db
 
   client:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: node:18-bullseye-slim # Готовый образ с git
+    command: sh -c "npm install && npm run start"
+    volumes:
+      - ./frontend:/usr/src/client
+    working_dir: /usr/src/client
     ports:
       - '3000:3000'
     environment:
       HOST: 0.0.0.0
-      NODE_ENV: production
-    depends_on:
-      - server
 
   admin:
     build:
