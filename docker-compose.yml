@@ -1,9 +1,8 @@
 version: '3.8'
 services:
   db:
-    image: postgres:latest
+    image: postgres:13 # Используем версию 13 вместо latest
     environment:
-      PGDATA: /var/lib/postgresql/data/turbo/
       POSTGRES_PASSWORD: ipadib339
       TZ: Europe/Moscow
     volumes:
