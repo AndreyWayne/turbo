@@ -14,6 +14,7 @@ SET standard_conforming_strings = on;
 -- SET transaction_timeout = '10s';  -- Закомментировано, чтобы избежать ошибки
 SET set_config = 'search_path = public, pg_catalog';
 
+
 --
 -- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
 --
