@@ -4,11 +4,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
-env: {
+  env: {
     baseUrl: process.env.BASE_URL || 'http://23.111.202.110:9000/api/'
   },
-  cache: true,
-  target: 'static',
   head: {
     title: 'TURBO | кузовной ремонт и автопокраска в Челябинске',
     htmlAttrs: {
