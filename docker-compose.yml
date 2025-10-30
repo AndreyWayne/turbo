@@ -11,8 +11,8 @@ services:
     ports:
       - '5432:5432'
   server:
-    image: node:12.16.3
-    command: sh -c "npm run start"
+    image: node:18
+    command: sh -c "npm i && npm run build && npm run start"
     # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
     volumes:
       - ./backend:/usr/src/server
@@ -24,8 +24,8 @@ services:
     depends_on:
       - db
   client:
-    image: node:12.16.3
-    command: sh -c "npm run start"
+    image: node:18
+    command: sh -c "npm i && npm run build && npm run start"
     # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
     volumes:
       - ./frontend:/usr/src/client
@@ -38,8 +38,8 @@ services:
       - db
       - server
   admin:
-    image: node:12.16.3
-    command: sh -c "npm run start"
+    image: node:18
+    command: sh -c "npm i && npm run build && npm run start"
     # command: sh -c "rm -rf package-lock.json && npm install && npm run dev"
     volumes:
       - ./admin:/usr/src/admin
