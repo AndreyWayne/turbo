@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   env: {
-    baseUrl: process.env.BASE_URL || 'http://192.168.0.194:9000/api/'
+    baseUrl: process.env.BASE_URL || 'http://23.111.202.110:9000/api/'
   },
   head: {
     titleTemplate: '%s - admin',
