@@ -4,7 +4,7 @@ WORKDIR /usr/src/admin
 
 COPY package*.json ./
 
-RUN npm install && npm cache clean --force
+RUN npm install
 
 COPY . .
 
