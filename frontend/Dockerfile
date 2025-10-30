@@ -6,7 +6,7 @@ WORKDIR /usr/src/client
 COPY package*.json ./
 
 # Устанавливаем зависимости с очисткой кэша
-RUN npm install --production --silent && npm cache clean --force
+RUN npm install && npm cache clean --force
 
 # Копируем исходный код
 COPY . .
