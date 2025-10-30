@@ -55,23 +55,5 @@ modules: ['@nuxtjs/axios'],
     proxy: true // Can be also an object with default options
   },
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    plugins: [
-      new webpack.ProvidePlugin({
-        mapboxgl: "mapbox-gl"
-      }),
-    ],
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
   }
 }
