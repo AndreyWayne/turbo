@@ -13,11 +13,6 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_7ab85506 from 'nuxt_plugin_axios_7ab85506' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_vuescrollto_62d81e43 from 'nuxt_plugin_vuescrollto_62d81e43' // Source: ./vue-scrollto.js (mode: 'client')
-import nuxt_plugin_googleanalytics_bfbc7940 from 'nuxt_plugin_googleanalytics_bfbc7940' // Source: ./google-analytics.js (mode: 'client')
-import nuxt_plugin_moment_2a04455c from 'nuxt_plugin_moment_2a04455c' // Source: ./moment.js (mode: 'all')
-
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
 
@@ -43,21 +38,36 @@ Vue.component('NChild', NuxtChild)
 // Component: <Nuxt>
 Vue.component(Nuxt.name, Nuxt)
 
+Object.defineProperty(Vue.prototype, '$nuxt', {
+  get() {
+    const globalNuxt = this.$root ? this.$root.$options.$nuxt : null
+    if (process.client && !globalNuxt && typeof window !== 'undefined') {
+      return window.$nuxt
+    }
+    return globalNuxt
+  },
+  configurable: true
+})
+
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 const originalRegisterModule = Vuex.Store.prototype.registerModule
-const baseStoreOptions = { preserveState: process.client }
 
 function registerModule (path, rawModule, options = {}) {
-  return originalRegisterModule.call(this, path, rawModule, { ...baseStoreOptions, ...options })
+  const preserveState = process.client && (
+    Array.isArray(path)
+      ? !!path.reduce((namespacedState, path) => namespacedState && namespacedState[path], this.state)
+      : path in this.state
+  )
+  return originalRegisterModule.call(this, path, rawModule, { preserveState, ...options })
 }
 
 async function createApp(ssrContext, config = {}) {
-  const router = await createRouter(ssrContext)
-
   const store = createStore(ssrContext)
+  const router = await createRouter(ssrContext, config, { store })
+
   // Add this.$router into store actions/mutations
   store.$router = router
 
@@ -69,7 +79,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"TURBO | кузовной ремонт и автопокраска в Челябинске","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, nofollow"},{"name":"copyright","lang":"ru","content":"andreywayne.ru"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"http-equiv":"content-language","content":"ru"},{"property":"og:locale","content":"ru_Ru"},{"name":"yandex-verification","content":"1e02698097de6b62"},{"name":"google-site-verification","content":"Nri6jFGFA6NIQDMssp-ea-lW4Qs8MoBdghbK_7w0yso"}],"link":[{"rel":"shortcut icon","type":"image\u002Fpng","href":"\u002Fimage\u002Ffavicon.png"},{"rel":"sitemap","href":"sitemap.xml","type":"application\u002Fxml"},{"href":"https:\u002F\u002Funpkg.com\u002Faos@2.3.1\u002Fdist\u002Faos.css","rel":"stylesheet"}],"script":[{"src":"https:\u002F\u002Fapi-maps.yandex.ru\u002F2.1\u002F?lang=ru_RU"},{"src":"\u002FyandexMap.js"}],"style":[]},
+    head: {"meta":[],"link":[],"style":[],"script":[]},
 
     store,
     router,
@@ -95,6 +105,7 @@ async function createApp(ssrContext, config = {}) {
       },
 
       err: null,
+      errPageReady: false,
       dateErr: null,
       error (err) {
         err = err || null
@@ -106,6 +117,7 @@ async function createApp(ssrContext, config = {}) {
         }
         nuxt.dateErr = Date.now()
         nuxt.err = err
+        nuxt.errPageReady = false
         // Used in src/server.js
         if (ssrContext) {
           ssrContext.nuxt.error = err
@@ -139,6 +151,7 @@ async function createApp(ssrContext, config = {}) {
     req: ssrContext ? ssrContext.req : undefined,
     res: ssrContext ? ssrContext.res : undefined,
     beforeRenderFns: ssrContext ? ssrContext.beforeRenderFns : undefined,
+    beforeSerializeFns: ssrContext ? ssrContext.beforeSerializeFns : undefined,
     ssrContext
   })
 
@@ -198,22 +211,6 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_7ab85506 === 'function') {
-    await nuxt_plugin_axios_7ab85506(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_vuescrollto_62d81e43 === 'function') {
-    await nuxt_plugin_vuescrollto_62d81e43(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_googleanalytics_bfbc7940 === 'function') {
-    await nuxt_plugin_googleanalytics_bfbc7940(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_moment_2a04455c === 'function') {
-    await nuxt_plugin_moment_2a04455c(app.context, inject)
-  }
-
   // Lock enablePreview in context
   if (process.static && process.client) {
     app.context.enablePreview = function () {
@@ -221,26 +218,33 @@ async function createApp(ssrContext, config = {}) {
     }
   }
 
-  // If server-side, wait for async component to be resolved first
-  if (process.server && ssrContext && ssrContext.url) {
-    await new Promise((resolve, reject) => {
-      router.push(ssrContext.url, resolve, (err) => {
-        // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
-        if (!err._isRouter) return reject(err)
-        if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
+  // Wait for async component to be resolved first
+  await new Promise((resolve, reject) => {
+    // Ignore 404s rather than blindly replacing URL in browser
+    if (process.client) {
+      const { route } = router.resolve(app.context.route.fullPath)
+      if (!route.matched.length) {
+        return resolve()
+      }
+    }
+    router.replace(app.context.route.fullPath, resolve, (err) => {
+      // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
+      if (!err._isRouter) return reject(err)
+      if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
 
-        // navigated to a different route in router guard
-        const unregister = router.afterEach(async (to, from) => {
+      // navigated to a different route in router guard
+      const unregister = router.afterEach(async (to, from) => {
+        if (process.server && ssrContext && ssrContext.url) {
           ssrContext.url = to.fullPath
-          app.context.route = await getRouteData(to)
-          app.context.params = to.params || {}
-          app.context.query = to.query || {}
-          unregister()
-          resolve()
-        })
+        }
+        app.context.route = await getRouteData(to)
+        app.context.params = to.params || {}
+        app.context.query = to.query || {}
+        unregister()
+        resolve()
       })
     })
-  }
+  })
 
   return {
     store,

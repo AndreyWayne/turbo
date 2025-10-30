@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
@@ -9,22 +10,17 @@ const _0c78ecf0 = () => interopDefault(import('../pages/o-nas.vue' /* webpackChu
 const _3aead151 = () => interopDefault(import('../pages/otzyvy.vue' /* webpackChunkName: "pages/otzyvy" */))
 const _94e0e7c6 = () => interopDefault(import('../pages/sobytiya/index.vue' /* webpackChunkName: "pages/sobytiya/index" */))
 const _77c3ba94 = () => interopDefault(import('../pages/uslugi/index.vue' /* webpackChunkName: "pages/uslugi/index" */))
+const _531e48d0 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _4cdbf1c5 = () => interopDefault(import('../pages/sobytiya/_id.vue' /* webpackChunkName: "pages/sobytiya/_id" */))
 const _51bd4ac4 = () => interopDefault(import('../pages/uslugi/_id.vue' /* webpackChunkName: "pages/uslugi/_id" */))
-const _531e48d0 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
-// TODO: remove in Nuxt 3
 const emptyFn = () => {}
-const originalPush = Router.prototype.push
-Router.prototype.push = function push (location, onComplete = emptyFn, onAbort) {
-  return originalPush.call(this, location, onComplete, onAbort)
-}
 
 Vue.use(Router)
 
 export const routerOptions = {
   mode: 'history',
-  base: decodeURI('/'),
+  base: '/',
   linkActiveClass: 'nuxt-link-active',
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
@@ -54,6 +50,10 @@ export const routerOptions = {
     component: _77c3ba94,
     name: "uslugi"
   }, {
+    path: "/",
+    component: _531e48d0,
+    name: "index"
+  }, {
     path: "/sobytiya/:id",
     component: _4cdbf1c5,
     name: "sobytiya-id"
@@ -61,15 +61,28 @@ export const routerOptions = {
     path: "/uslugi/:id",
     component: _51bd4ac4,
     name: "uslugi-id"
-  }, {
-    path: "/",
-    component: _531e48d0,
-    name: "index"
   }],
 
   fallback: false
 }
 
-export function createRouter () {
-  return new Router(routerOptions)
+export function createRouter (ssrContext, config) {
+  const base = (config._app && config._app.basePath) || routerOptions.base
+  const router = new Router({ ...routerOptions, base  })
+
+  // TODO: remove in Nuxt 3
+  const originalPush = router.push
+  router.push = function push (location, onComplete = emptyFn, onAbort) {
+    return originalPush.call(this, location, onComplete, onAbort)
+  }
+
+  const resolve = router.resolve.bind(router)
+  router.resolve = (to, current, append) => {
+    if (typeof to === 'string') {
+      to = normalizeURL(to)
+    }
+    return resolve(to, current, append)
+  }
+
+  return router
 }

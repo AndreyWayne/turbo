@@ -12,7 +12,7 @@ router.put('/main', async (req, res) => {
 
     console.log(body)
 
-    await db.query(`UPDATE public.main
+    await db.query(`UPDATE main
 	SET head1='${body.head1}', head2='${body.head2}', description='${body.description}', do_description='${body.do_description}', work_head='${body.work_head}', work_description='${body.work_description}', contacts_time1='${body.contacts_time1}', contacts_time2='${body.contacts_time2}', phone='${body.phone}', email='${body.email}', address='${body.address}', vk='${body.vk}', inst='${body.inst}' WHERE id=1`);
 
     res.json('Изменено');

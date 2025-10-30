@@ -30,7 +30,7 @@ router.put('/uslugi/:id', async (req, res) => {
 });
 
 router.delete('/uslugi/:id', async (req, res) => {
-    await db.query(`DELETE FROM public.uslugi WHERE id=${req.params.id};`);
+    await db.query(`DELETE FROM uslugi WHERE id=${req.params.id};`);
 
     res.json('Удалено');
 });

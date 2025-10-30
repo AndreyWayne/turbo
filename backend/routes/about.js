@@ -10,7 +10,7 @@ router.get('/about', async (req, res) => {
 router.put('/about', async (req, res) => {
     const body = req.body;
 
-    await db.query(`UPDATE public.about
+    await db.query(`UPDATE about
 	SET name='${body.name}', description='${body.description}'
 	WHERE id=1;`);
 

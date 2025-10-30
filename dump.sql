@@ -44,21 +44,21 @@ SET default_with_oids = false;
 -- Name: about; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.about (
+CREATE TABLE about (
     id integer NOT NULL,
     name text,
     description text
 );
 
 
-ALTER TABLE public.about OWNER TO postgres;
+ALTER TABLE about OWNER TO postgres;
 
 --
 -- Name: about_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.about ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.about_id_seq
+ALTER TABLE about ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME about_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -71,7 +71,7 @@ ALTER TABLE public.about ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Name: main; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.main (
+CREATE TABLE main (
     id integer NOT NULL,
     head1 text,
     head2 text,
@@ -89,14 +89,14 @@ CREATE TABLE public.main (
 );
 
 
-ALTER TABLE public.main OWNER TO postgres;
+ALTER TABLE main OWNER TO postgres;
 
 --
 -- Name: main_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.main ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.main_id_seq
+ALTER TABLE main ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME main_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -109,7 +109,7 @@ ALTER TABLE public.main ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Name: uslugi; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.uslugi (
+CREATE TABLE uslugi (
     id integer NOT NULL,
     name text,
     image text,
@@ -118,14 +118,14 @@ CREATE TABLE public.uslugi (
 );
 
 
-ALTER TABLE public.uslugi OWNER TO postgres;
+ALTER TABLE uslugi OWNER TO postgres;
 
 --
 -- Name: uslugi_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.uslugi ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.uslugi_id_seq
+ALTER TABLE uslugi ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME uslugi_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -138,7 +138,7 @@ ALTER TABLE public.uslugi ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Name: works; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.works (
+CREATE TABLE works (
     id integer NOT NULL,
     name text,
     description text,
@@ -146,14 +146,14 @@ CREATE TABLE public.works (
 );
 
 
-ALTER TABLE public.works OWNER TO postgres;
+ALTER TABLE works OWNER TO postgres;
 
 --
 -- Name: works_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.works ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.works_id_seq
+ALTER TABLE works ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME works_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -166,7 +166,7 @@ ALTER TABLE public.works ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Data for Name: about; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.about (id, name, description) FROM stdin;
+COPY about (id, name, description) FROM stdin;
 1	ЛУЧШИЙ АВТОСЕРВИС ЧЕЛЯБИНСКА	<p>Занимаемся молярно-кузовным ремонтом автомобилей уже с 2007 года. За это время покрасили и восстановили более 2500 машин.</p>\n<p>В работе используем современное оборудование. В арсенале: стапель, профессиональная покрасочная камера, немецкие пистолеты SATA, шлифмашинки MIRKA.</p>\n<p class="line">Мы официальные дилеры микс системы TURBO (HYMAX). На каждом этапе работы используем только заводские материалы: шпаклёвка, грунтовка, автоэмаль и лак. Поэтому отвечаем за качество покраски вашего автомобиля.</p>\n<p>Самостоятельно подбираем автоэмаль. Анализируем цвет при помощи современного многолучевого спектрофотометра и подбираем нужный при помощи программного обеспечения. Регулярно, 2–3 раза в год, к нам приезжают специалисты HYMAX и обучают последним технологиям покраски.</p>\n<p>Продаём лакокрасочные материалы оптом и в розницу. Предлагаем краску Hymax, расходные материалы Nuovo Corso и Hymax, абразив MIRKA. Ответственно подходим к каждому заказу и даём гарантию качества 1 год.</p>
 \.
 
@@ -175,7 +175,7 @@ COPY public.about (id, name, description) FROM stdin;
 -- Data for Name: main; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.main (id, head1, head2, do_description, work_head, work_description, contacts_time1, contacts_time2, phone, email, address, vk, inst, description) FROM stdin;
+COPY main (id, head1, head2, do_description, work_head, work_description, contacts_time1, contacts_time2, phone, email, address, vk, inst, description) FROM stdin;
 1	Turbo	 Автосервис	Наш сервис предоставляет более 16 услуг по ремонту автомобиля с 2007 года, соблюдая идеальное качество работы и низкие цены.	Остаёмся лучшими в Челябинске	 В работе используем современное оборудование. В арсенале: стапель, профессиональная покрасочная камера, немецкие пистолеты SATA, шлифмашинки MIRKA. Ответственно подходим к каждому заказу и даём гарантию качества 1 год. Можете посмотреть примеры работ, которые говорят сами за себя.	Будние дни: с 09:00 до 21:00	Выходные дни: с 10:00 до 21:00	+7 (908)-704-38-00	74autoturbo@gmail.com	Россия, Челябинск, Маслобазовая улица, 5Д, 454045	https://vk.com/avtoturbo74	https://www.instagram.com/servis.turbo/?hl=ru	СТО с сильнейшими специалистами в Челябинске. Мы занимаемся кузовным ремонтом и покраской автомобиля по последним технологиям.
 \.
 
@@ -184,7 +184,7 @@ COPY public.main (id, head1, head2, do_description, work_head, work_description,
 -- Data for Name: uslugi; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.uslugi (id, name, image, description, price) FROM stdin;
+COPY uslugi (id, name, image, description, price) FROM stdin;
 35	АВТОПОКРАСКА	http://74autoturbo.ru/image/services/2.jpg	Локальная покраска, покраска бамперов. Стоимость зависит от размера работ.	5000
 34	Кузовные работы 	http://74autoturbo.ru/image/services/1.jpg	Делаем восстановление геометрии, локальное удаление коррозии и ржавчины, ремонт бампера, ремонт автомобильных порогов, жестяные работы, сварочные работы, стапельные работы, рихтовку. Стоимость будет зависеть от объема работ.	500
 36	ЗАМЕНА МАСЛА	http://74autoturbo.ru/image/services/3.jpg	Периодичность замены масла зависит от состояния двигателя, качества масел и горючего, погодных условий, условий эксплуатации автомобиля, на которые влияет в том числе качество дорог.	300
@@ -204,7 +204,7 @@ COPY public.uslugi (id, name, image, description, price) FROM stdin;
 -- Data for Name: works; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.works (id, name, description, image) FROM stdin;
+COPY works (id, name, description, image) FROM stdin;
 34	Кия Соренто	Выполнили ремонт и покраску дверей, переднего крыла и заднего бампера	https://sun9-5.userapi.com/impg/vv_-3azTrGnjKAgJla_qS2QiyVJBMCJj6mOOKg/7lbihxy0uXs.jpg?size=1080x1280&quality=96&sign=efdebe05ab4f7eebdebd33e49931ae0e&type=album
 36	Кия Соренто	Покраска	https://sun9-5.userapi.com/impg/vv_-3azTrGnjKAgJla_qS2QiyVJBMCJj6mOOKg/7lbihxy0uXs.jpg?size=1080x1280&quality=96&sign=efdebe05ab4f7eebdebd33e49931ae0e&type=album
 35	Тойота Лэнд Крузер	Выполнили ремонт и покраску переднего крыла Выполнили ремонт и покраску переднего крыла Выполнили ремонт и покраску переднего крыла Выполнили ремонт и покраску переднего крыла	https://sun9-64.userapi.com/impg/R7f9h6hlqkWgk0TxFbGtHtaZbzGR09bRyqK0ug/fvGi6ZzSXe8.jpg?size=1080x1280&quality=96&sign=45cb6257a7e3dc0ade832e45c7cff895&type=album
@@ -215,35 +215,35 @@ COPY public.works (id, name, description, image) FROM stdin;
 -- Name: about_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.about_id_seq', 33, true);
+SELECT pg_catalog.setval('about_id_seq', 33, true);
 
 
 --
 -- Name: main_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_id_seq', 33, true);
+SELECT pg_catalog.setval('main_id_seq', 33, true);
 
 
 --
 -- Name: uslugi_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.uslugi_id_seq', 45, true);
+SELECT pg_catalog.setval('uslugi_id_seq', 45, true);
 
 
 --
 -- Name: works_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.works_id_seq', 36, true);
+SELECT pg_catalog.setval('works_id_seq', 36, true);
 
 
 --
 -- Name: about about_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.about
+ALTER TABLE ONLY about
     ADD CONSTRAINT about_pkey PRIMARY KEY (id);
 
 
@@ -251,7 +251,7 @@ ALTER TABLE ONLY public.about
 -- Name: main main_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.main
+ALTER TABLE ONLY main
     ADD CONSTRAINT main_pkey PRIMARY KEY (id);
 
 
@@ -259,7 +259,7 @@ ALTER TABLE ONLY public.main
 -- Name: uslugi uslugi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.uslugi
+ALTER TABLE ONLY uslugi
     ADD CONSTRAINT uslugi_pkey PRIMARY KEY (id);
 
 
@@ -267,7 +267,7 @@ ALTER TABLE ONLY public.uslugi
 -- Name: works works_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.works
+ALTER TABLE ONLY works
     ADD CONSTRAINT works_pkey PRIMARY KEY (id);
 
 

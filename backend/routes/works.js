@@ -24,7 +24,7 @@ router.put('/works/:id', async (req, res) => {
 });
 
 router.delete('/works/:id', async (req, res) => {
-    await db.query(`DELETE FROM public.works WHERE id=${req.params.id};`);
+    await db.query(`DELETE FROM works WHERE id=${req.params.id};`);
 
     res.json('Удалено');
 });
