@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 Wrapper.wr-1.services__block
   Container.container
     Section
@@ -16,7 +16,7 @@ Wrapper.wr-1.services__block
             :key='100 + i'
             :class='{ "services-image--active": item.active }'
             :style='{ backgroundImage: `url(${item.image})` }'
-          )
+          ) {{ item }}
           nuxt-link.services__item(
             v-for='(item, i) in api'
             :key='i'
@@ -45,30 +45,30 @@ Wrapper.wr-1.services__block
 </template>
 
 <script>
-import Wrapper from '~/plugins/Wrapper'
-import Container from '~/plugins/Container'
-import Section from '~/plugins/Section'
-import H3 from '~/plugins/H3'
-import H4 from '~/plugins/H4'
+import Wrapper from "~/plugins/Wrapper";
+import Container from "~/plugins/Container";
+import Section from "~/plugins/Section";
+import H3 from "~/plugins/H3";
+import H4 from "~/plugins/H4";
 
 export default {
-  props: ['api'],
+  props: ["api"],
   data() {
     return {
-      hover: false
-    }
+      hover: false,
+    };
   },
   components: {
     Wrapper,
     Container,
     Section,
     H3,
-    H4
-  }
-}
+    H4,
+  },
+};
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 section {
   position: relative;
 }
@@ -96,7 +96,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all .6s;
+    transition: all 0.6s;
     transform: scale(1.1);
     background-repeat: no-repeat;
     background-size: cover;
@@ -114,7 +114,7 @@ section {
     max-height: 240px;
     margin: 0;
     min-width: 240px;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -122,7 +122,7 @@ section {
     padding-left: 30px;
     padding-top: 17px;
     padding-bottom: 40px;
-    transition: all .4s;
+    transition: all 0.4s;
     position: relative;
     @media screen and (max-width: 1279px) {
       width: 25vw;
@@ -132,21 +132,21 @@ section {
       min-width: 25vw;
     }
     &:before {
-      content: '';
+      content: "";
       width: 0;
       height: 100%;
       left: 0;
       top: 0;
       position: absolute;
-      transition: all .3s;
-      background: rgba(165, 133, 75, .6);
+      transition: all 0.3s;
+      background: rgba(165, 133, 75, 0.6);
     }
     &-title {
       transform: translate(0);
       z-index: 2;
     }
     &:hover {
-      border: 1px solid rgba(165, 133, 75, .6);
+      border: 1px solid rgba(165, 133, 75, 0.6);
       &:before {
         width: 100%;
       }
@@ -175,14 +175,19 @@ section {
       color: #131313;
     }
     h4 {
-      color: rgba(0,0,0,0.50);
+      color: rgba(0, 0, 0, 0.5);
       margin-top: 10px;
     }
-    h4, h4, p {
-      transition: all .3s;
+    h4,
+    h4,
+    p {
+      transition: all 0.3s;
     }
     &--color {
-      h3, h4, p, g {
+      h3,
+      h4,
+      p,
+      g {
         color: white;
         opacity: 1;
         fill: white;
@@ -190,7 +195,7 @@ section {
     }
     &--head {
       border: none;
-      background: #A5864B;
+      background: #a5864b;
       padding: 0;
       width: 240px;
       height: 240px;
@@ -257,7 +262,7 @@ section {
       justify-content: flex-start;
       align-items: center;
       border: none;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
       position: relative;
       &:last-child {
         border-bottom: 0;
