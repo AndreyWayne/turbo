@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 Wrapper.service
   Container
     Section
@@ -12,37 +12,42 @@ Wrapper.service
         .content__right
           .content__right--title
             H2(typed='main') Описание
-            Title(typed='normal') {{ transformTitle }}
+            Title(typed='normal').description {{ transformTitle }}
 </template>
 
 <script>
-import Wrapper from '~/plugins/Wrapper'
-import Container from '~/plugins/Container'
-import Section from '~/plugins/Section'
-import Title from '~/plugins/Title'
-import H1 from '~/plugins/H1'
-import H2 from '~/plugins/H2'
-import moment from 'moment'
+import Wrapper from "~/plugins/Wrapper";
+import Container from "~/plugins/Container";
+import Section from "~/plugins/Section";
+import Title from "~/plugins/Title";
+import H1 from "~/plugins/H1";
+import H2 from "~/plugins/H2";
+import moment from "moment";
 
 export default {
-  props: [
-    'api'
-  ],
+  props: ["api"],
   computed: {
     transformDate() {
-      return this.api.text.substring(0, 15) + '...'
+      return this.api.text.substring(0, 15) + "...";
     },
     transformImage() {
-      if (this.api.attachments[0].type === 'video') {
-        return this.api.attachments[0].video.image[this.api.attachments[0].video.image.length - 1].url
+      if (this.api.attachments[0].type === "video") {
+        return this.api.attachments[0].video.image[
+          this.api.attachments[0].video.image.length - 1
+        ].url;
       }
-      if (this.api.attachments[0].type === 'photo') {
-        return this.api.attachments[0].photo.sizes[this.api.attachments[0].photo.sizes.length - 1].url
+      if (this.api.attachments[0].type === "photo") {
+        return this.api.attachments[0].photo.sizes[
+          this.api.attachments[0].photo.sizes.length - 1
+        ].url;
       }
     },
     transformTitle() {
-      return this.api.text.replace(/([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
-    }
+      return this.api.text.replace(
+        /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+        ""
+      );
+    },
   },
   components: {
     Wrapper,
@@ -50,12 +55,12 @@ export default {
     Section,
     Title,
     H1,
-    H2
-  }
-}
+    H2,
+  },
+};
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .service {
   background: #131313;
   padding-top: 160px;
@@ -136,4 +141,7 @@ export default {
   }
 }
 
+.description {
+  white-space: pre-line;
+}
 </style>
