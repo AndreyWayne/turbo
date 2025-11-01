@@ -4,11 +4,20 @@ const nodemailer = require('nodemailer');
 const router = require('express').Router();
 
 const transport = nodemailer.createTransport({
-    service: 'Yandex', // no need to set host or port etc.
+   host: 'smtp.yandex.ru',
+    port: 587,  // ← Используем порт 587 вместо 465
+    secure: false,  // ← false для порта 587
+    requireTLS: true,  // ← Требуем TLS шифрование
     auth: {
         user: 'avtoservisturbo@yandex.ru',
         pass: 'iocuxraxkfztekof'
-    }
+    },
+    // Дополнительные настройки для надежности
+    connectionTimeout: 30000,
+    greetingTimeout: 30000,
+    socketTimeout: 30000,
+    debug: true,
+    logger: true
 });
 
 router.post('/mailto', async (req, res) => {
